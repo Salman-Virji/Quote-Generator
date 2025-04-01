@@ -1,4 +1,4 @@
-# 🧠 Quote Generator
+#  Quote Generator
 
 A sleek, responsive web app that displays a daily quote and lets users fetch new quotes at any time. Built with **React**, **Tailwind CSS**, and the [Quotable API](https://api.quotable.io).
 
@@ -6,18 +6,17 @@ A sleek, responsive web app that displays a daily quote and lets users fetch new
 
 ---
 
-## 🌟 Features
+##  Features
 
-- 🔁 **Quote of the Day** stored with `localStorage`
-- 🌍 Pulls real quotes using the [Quotable API](https://api.quotable.io)
-- ⚡ Fetch new quotes instantly
-- 🎨 Responsive and mobile-friendly layout
-- 🌙 Dark mode toggle
-- 💾 Persistent daily quote logic
+-  **Quote of the Day** stored with `localStorage`
+-  Pulls real quotes using the [Quotable API](https://api.quotable.io)
+-  Fetch new quotes instantly
+-  Responsive and mobile-friendly layout
+-  Persistent daily quote logic
 
 ---
 
-## 🔧 Built With
+##  Built With
 
 - [React](https://reactjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
@@ -30,9 +29,9 @@ A sleek, responsive web app that displays a daily quote and lets users fetch new
 
 🔗 [https://quotegens.netlify.app](https://quotegens.netlify.app)
 
----
 
-## 🧪 Running Locally
+
+
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/Quote-Generator.git
