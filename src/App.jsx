@@ -12,7 +12,7 @@ export default function App() {
 
   useEffect(() => {
     const today = new Date().toLocaleDateString();
-    const saved = JSON.parse(localStorage.getItem("dailyQuote"));
+    const saved = JSON.parse(sessionStorage.getItem("dailyQuote"));
 
     if (saved && saved.date === today) {
       setDailyQuote(saved.quote);
@@ -22,7 +22,7 @@ export default function App() {
         .then((data) => {
           const newQuote = { content: data.content, author: data.author };
           setDailyQuote(newQuote);
-          localStorage.setItem(
+          sessionStorage.setItem(
             "dailyQuote",
             JSON.stringify({ quote: newQuote, date: today })
           );
