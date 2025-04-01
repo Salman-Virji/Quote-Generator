@@ -5,7 +5,7 @@ export default function App() {
   const [dailyQuote, setDailyQuote] = useState({ content: " ", author: " " });
 
   async function getQuote() {
-    const res = await fetch("http://api.quotable.io/random");
+    const res = await fetch("https://api.quotable.io/random");
     const data = await res.json();
     setQuote({ content: data.content, author: data.author });
   }
@@ -17,7 +17,7 @@ export default function App() {
     if (saved && saved.date === today) {
       setDailyQuote(saved.quote);
     } else {
-      fetch("http://api.quotable.io/random")
+      fetch("https://api.quotable.io/random")
         .then((res) => res.json())
         .then((data) => {
           const newQuote = { content: data.content, author: data.author };
