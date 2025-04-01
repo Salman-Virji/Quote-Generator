@@ -1,12 +1,39 @@
-# React + Vite
+# 🧠 Quote Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A sleek, responsive web app that displays a daily quote and lets users fetch new quotes at any time. Built with **React**, **Tailwind CSS**, and the [Quotable API](https://api.quotable.io).
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🌟 Features
+
+- 🔁 **Quote of the Day** stored with `localStorage`
+- 🌍 Pulls real quotes using the [Quotable API](https://api.quotable.io)
+- ⚡ Fetch new quotes instantly
+- 🎨 Responsive and mobile-friendly layout
+- 🌙 Dark mode toggle
+- 💾 Persistent daily quote logic
+
+---
+
+## 🔧 Built With
+
+- [React](https://reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Vite](https://vitejs.dev/)
+- [Quotable API](https://api.quotable.io/)
+
+---
+
+## 📸 Live Demo
+
+🔗 [https://quotegens.netlify.app](https://quotegens.netlify.app)
+
+---
+
+## 🧪 Running Locally
+
+```bash
+git clone https://github.com/YOUR_USERNAME/Quote-Generator.git
+cd Quote-Generator
