@@ -32,11 +32,20 @@ export default function App() {
   //   getQuote();
   // }, []);
 
-
-
   useEffect(() => {
-    getQuote();
+    fetch("https://api.quotable.io/random")
+      .then((res) => res.json())
+      .then((data) => {
+        setQuote({ content: data.content, author: data.author });
+      })
+      .catch((err) => {
+        console.error("Fetch failed on Android:", err);
+      });
+
+      getQuote();
   }, []);
+
+  
 
   return (
     <div className="flex flex-col md:flex-row items-center justify-center gap-8 px-4 py-8 min-h-screen bg-gray-800 text-white">
