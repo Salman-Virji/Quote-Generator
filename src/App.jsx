@@ -6,14 +6,11 @@ export default function App() {
 
   async function getQuote() {
     try {
-      const proxyUrl = "https://thingproxy.freeboard.io/fetch/";
-      const apiUrl = "https://api.quotable.io/random";
-  
-      const res = await fetch(proxyUrl + apiUrl);
+      const res = await fetch("/.netlify/functions/quote");
       const data = await res.json();
   
       setQuote({
-        content: data.content,
+        content: data.quote,
         author: data.author,
       });
 
@@ -29,14 +26,12 @@ export default function App() {
 
   async function getDailyQuote() {
     try {
-      const proxyUrl = "https://thingproxy.freeboard.io/fetch/";
-      const apiUrl = "https://api.quotable.io/random";
   
-      const res = await fetch(proxyUrl + apiUrl);
+      const res = await fetch("/.netlify/functions/quote");
       const data = await res.json();
   
       setDailyQuote({
-        content: data.content,
+        content: data.quote,
         author: data.author,
       });
 
