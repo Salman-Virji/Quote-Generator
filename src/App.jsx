@@ -5,45 +5,61 @@ export default function App() {
   const [dailyQuote, setDailyQuote] = useState({ content: "Loading quote... ", author: "Loading author..." });
 
   async function getQuote() {
-    const res = await fetch("https://api.quotable.io/random");
-    const data = await res.json();
-    setQuote({ content: data.content, author: data.author });
-  }
-
-  // useEffect(() => {
-  //   const today = new Date().toLocaleDateString();
-  //   const saved = JSON.parse(sessionStorage.getItem("dailyQuote"));
-
-  //   if (saved && saved.date === today) {
-  //     setDailyQuote(saved.quote);
-  //   } else {
-  //     fetch("https://api.quotable.io/random")
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         const newQuote = { content: data.content, author: data.author };
-  //         setDailyQuote(newQuote);
-  //         sessionStorage.setItem(
-  //           "dailyQuote",
-  //           JSON.stringify({ quote: newQuote, date: today })
-  //         );
-  //       });
-  //   }
-    
-  //   getQuote();
-  // }, []);
-
-  useEffect(() => {
-    fetch("https://api.quotable.io/random")
-      .then((res) => res.json())
-      .then((data) => {
-        setQuote({ content: data.content, author: data.author });
-      })
-      .catch((err) => {
-        console.error("Fetch failed on Android:", err);
+    try {
+      const proxyUrl = "https://thingproxy.freeboard.io/fetch/";
+      const apiUrl = "https://api.quotable.io/random";
+  
+      const res = await fetch(proxyUrl + apiUrl);
+      const data = await res.json();
+  
+      setQuote({
+        content: data.content,
+        author: data.author,
       });
 
-      getQuote();
+      
+    } catch (err) {
+      console.error("Failed to fetch quote:", err);
+      setQuote({
+        content: "Failed to load quote.",
+        author: "Error",
+      });
+    }
+  }
+
+  async function getDailyQuote() {
+    try {
+      const proxyUrl = "https://thingproxy.freeboard.io/fetch/";
+      const apiUrl = "https://api.quotable.io/random";
+  
+      const res = await fetch(proxyUrl + apiUrl);
+      const data = await res.json();
+  
+      setDailyQuote({
+        content: data.content,
+        author: data.author,
+      });
+
+      
+    } catch (err) {
+      console.error("Failed to fetch quote:", err);
+      setQuote({
+        content: "Failed to load quote.",
+        author: "Error",
+      });
+    }
+  }
+  
+
+  useEffect(() => {
+    getDailyQuote()
+    
+    getQuote();
   }, []);
+
+  
+  
+  
 
   
 
