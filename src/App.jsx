@@ -1,34 +1,40 @@
 import { useEffect, useState } from "react";
 
 export default function App() {
-  const [quote, setQuote] = useState({ content: " ", author: " " });
-  const [dailyQuote, setDailyQuote] = useState({ content: " ", author: " " });
+  const [quote, setQuote] = useState({ content: "Loading quote... ", author: "Loading author... " });
+  const [dailyQuote, setDailyQuote] = useState({ content: "Loading quote... ", author: "Loading author..." });
 
   async function getQuote() {
-    const res = await fetch("https://api.quotable.io/quotes/random?limit=1");
+    const res = await fetch("https://api.quotable.io/random");
     const data = await res.json();
     setQuote({ content: data.content, author: data.author });
   }
 
-  useEffect(() => {
-    const today = new Date().toLocaleDateString();
-    const saved = JSON.parse(sessionStorage.getItem("dailyQuote"));
+  // useEffect(() => {
+  //   const today = new Date().toLocaleDateString();
+  //   const saved = JSON.parse(sessionStorage.getItem("dailyQuote"));
 
-    if (saved && saved.date === today) {
-      setDailyQuote(saved.quote);
-    } else {
-      fetch("https://api.quotable.io/quotes/random?limit=1)
-        .then((res) => res.json())
-        .then((data) => {
-          const newQuote = { content: data.content, author: data.author };
-          setDailyQuote(newQuote);
-          sessionStorage.setItem(
-            "dailyQuote",
-            JSON.stringify({ quote: newQuote, date: today })
-          );
-        });
-    }
+  //   if (saved && saved.date === today) {
+  //     setDailyQuote(saved.quote);
+  //   } else {
+  //     fetch("https://api.quotable.io/random")
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         const newQuote = { content: data.content, author: data.author };
+  //         setDailyQuote(newQuote);
+  //         sessionStorage.setItem(
+  //           "dailyQuote",
+  //           JSON.stringify({ quote: newQuote, date: today })
+  //         );
+  //       });
+  //   }
     
+  //   getQuote();
+  // }, []);
+
+
+
+  useEffect(() => {
     getQuote();
   }, []);
 
@@ -75,20 +81,20 @@ export default function App() {
         </div>
       </div>
 
-      <footer class="fixed bottom-0 left-0 z-20 w-full p-4 bg-white border-t border-gray-200 shadow-sm md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800 dark:border-gray-600">
-        <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+      <footer className="fixed bottom-0 left-0 z-20 w-full p-4 bg-white border-t border-gray-200 shadow-sm md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800 dark:border-gray-600">
+        <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
           © 2025{" "}
-          <a href="salmanvirji.com" class="hover:underline">
+          <a href="salmanvirji.com" className="hover:underline">
             Salman Virji
           </a>
         </span>
-        <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+        <ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
           <li>
             <a
               href="https://salmanvirji.com"
               target="_blank"
               rel="noopener noreferrer"
-              class="hover:underline"
+              className="hover:underline"
             >
               salmanvirji.com
             </a>
